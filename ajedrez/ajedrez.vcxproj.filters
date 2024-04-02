@@ -21,9 +21,21 @@
     <ClCompile Include="tablero.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="piezas_blancas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="piezas_negras.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tablero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="piezas_blancas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="piezas_negras.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
