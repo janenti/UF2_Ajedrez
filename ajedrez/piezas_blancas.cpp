@@ -1,4 +1,5 @@
 #include <iostream>
+#include "gameplay.h"
 #define dFilas 9
 #define dColumnas 9
 using namespace std;
@@ -40,3 +41,4 @@ void fPiezas_blancas(char cPblanco, char cTablero[dFilas][dColumnas], char cKbla
 	cTablero[sFila_ultima][sColumnaTorre1] = cTblanca;
 	cTablero[sFila_ultima][sColumnaTorre2] = cTblanca;
 }
+
