@@ -110,7 +110,7 @@ void fPeonNegro(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas],
 			// Realizar el movimiento en el tablero
 			cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 			cTablero[sFilaInicial][sColumnaInicial] = cVacio; // Vaciar la posición anterior del peón
-			sActual = 1;
+			sActual = 0;
 		}
 		else if (sFilaNueva == sFilaInicial + 2 && sColumnaNueva == sColumnaInicial && sFilaInicial == dFilas - 7)
 		{
@@ -171,13 +171,27 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 				cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 				// Vaciar la posición anterior
 				cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-				// Actualizar para turno de las blancas
-				sActual = 0;
+				// Actualizar turno
+				if (sActual == 1)
+				{
+					sActual = 0;
+				}
+				else
+				{
+					sActual = 1;
+				}
 				if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
 				{
 					cout << "Mate!!!" << endl;
 					bGameover = false;
 				}
+			}
+			else if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
+
+			}
+			else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
 			}
 			else
 			{
@@ -188,7 +202,7 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 		else
 		{
 			bool bDespejado = true; 
-			for (short i = 0; i < sFilaInicial; i--)
+			for (short i = sFilaInicial; i < sFilaNueva; i--)
 			{
 				if (cTablero[sFilaInicial - i][sColumnaInicial] != cVacio)
 				{
@@ -201,13 +215,27 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 				cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 				// Vaciar la posición anterior
 				cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-				// Actualizar para turno de las blancas
-				sActual = 0;
+				// Actualizar turno
+				if (sActual == 1)
+				{
+					sActual = 0;
+				}
+				else
+				{
+					sActual = 1;
+				}
 				if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
 				{
 					cout << "Mate!!!" << endl;
 					bGameover = false;
 				}
+			}
+			else if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
+
+			}
+			else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
 			}
 			else
 			{
@@ -218,7 +246,7 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 		if (sColumnaInicial < sColumnaNueva)
 		{
 			bool bDespejado = true;
-			for (short i = 0; i < sColumnaNueva; i++)
+			for (short i = sColumnaInicial; i < sColumnaNueva; i++)
 			{
 				if (cTablero[sFilaInicial][sColumnaInicial + i] != cVacio)
 				{
@@ -231,13 +259,27 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 				cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 				// Vaciar la posición anterior
 				cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-				// Actualizar para turno de las blancas
-				sActual = 0;
+				// Actualizar turno
+				if (sActual == 1)
+				{
+					sActual = 0;
+				}
+				else
+				{
+					sActual = 1;
+				}
 				if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
 				{
 						cout << "Mate!!!" << endl;
 						bGameover = false;
 				}
+			}
+			else if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
+
+			}
+			else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
 			}
 			else
 			{
@@ -248,7 +290,7 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 		else
 		{
 			bool bDespejado = true;
-			for (short i = 0; i < sColumnaInicial; i--)
+			for (short i = sColumnaInicial; i < sColumnaNueva; i--)
 			{
 				if (cTablero[sFilaInicial][sColumnaInicial - i] != cVacio)
 				{
@@ -261,13 +303,28 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 				cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 				// Vaciar la posición anterior
 				cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-				// Actualizar para turno de las blancas
-				sActual = 0;
+				// Actualizar turno
+				if (sActual == 1)
+				{
+					sActual = 0;
+				}
+				else
+				{
+					sActual = 1;
+				}
 				if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
 				{
 						cout << "Mate!!!" << endl;
 						bGameover = false;
 				}
+				
+			}
+			else if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
+
+			}
+			else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+				cout << "Esa pieza es tuya!!!!" << endl;
 			}
 			else
 			{
@@ -284,18 +341,33 @@ void fTorre(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], cha
 void fCaballo(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cHblanco, char cHnegro) {
 	if (cTablero[sFilaInicial][sColumnaInicial] == cHblanco || cTablero[sFilaInicial][sColumnaInicial] == cHnegro)
 	{
-		// Realizar el movimiento en el tablero
-		cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
-		// Vaciar la posición anterior
-		cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-		// Actualizar para turno de las blancas
-		sActual = 0;
-		if (cTablero[sFilaNueva][sColumnaNueva] == cHblanco && cTablero[sFilaNueva][sColumnaNueva] == cHnegro)
-		{
-			cout << "Mate!!!" << endl;
-			bGameover = false;
+		if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+			cout << "Esa pieza es tuya!!!!" << endl;;
 		}
-
+		else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+			cout << "Esa pieza es tuya!!!!" << endl;
+		}
+		else
+		{
+			// Realizar el movimiento en el tablero
+			cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
+			// Vaciar la posición anterior
+			cTablero[sFilaInicial][sColumnaInicial] = cVacio;
+			// Actualizar turno
+			if (sActual == 1)
+			{
+				sActual = 0;
+			}
+			else
+			{
+				sActual = 1;
+			}
+			if (cTablero[sFilaNueva][sColumnaNueva] == cHblanco && cTablero[sFilaNueva][sColumnaNueva] == cHnegro)
+			{
+				cout << "Mate!!!" << endl;
+				bGameover = false;
+			}
+		}
 	}
 	else
 	{
@@ -303,28 +375,210 @@ void fCaballo(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], c
 	}
 }
 
-// Función para verificar si el movimiento del alfil es válido
-bool fMovimientoAlfilValido(char cTablero[dFilas][dColumnas]) {
-	if ()
-	{
-
+// Verifico si la casilla esta abajo a la derecha de la casilla inicial
+bool fAlfilAbajoDerecha(char cTablero[dFilas][dColumnas], char cVacio, short sActual, char cBblanco, char cBnegro, char cQblanca, char cQnegra) {
+	if (cTablero[sFilaInicial][sColumnaInicial] == cBblanco || cTablero[sFilaInicial][sColumnaInicial] == cBnegro || cTablero[sFilaInicial][sColumnaInicial] == cQnegra || cTablero[sFilaInicial][sColumnaInicial] == cQblanca) {
+		for (short i = sFilaInicial + 1; i < sFilaNueva; i++) {
+			for (short j = sColumnaInicial + 1; j > sColumnaNueva; j++) {
+				// Si pasa por encima de alguna pieza, dará falso.
+				if (cTablero[i][j] != cVacio) {
+					cout << "No se puede llegar hasta la casilla!!!" << endl;
+					return false;
+				}
+				else if (cTablero[i][j] == cTablero[sFilaNueva][sColumnaNueva]) {
+					// Verificación para que en la casilla seleccionada esté una pieza del color opuesto con las funciones isupper y islower que detectan si un caracter está en mayúscula o minúscula
+					if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+						cout << "Esa pieza es tuya!!!!" << endl;
+						return false;
+					}
+					else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+						cout << "Esa pieza es tuya!!!!" << endl;
+						return false;
+					}
+					else
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false; // Si no se cumple ninguna condición, retornar falso.
 	}
-	
-	return false;
 }
-void fAlfil(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cBblanco, char cBnegro) {
-	if (fMovimientoAlfilValido)
+// Verifico si la casilla esta arriba a la derecha de la casilla inicial
+bool fAlfilArribaDerecha(char cTablero[dFilas][dColumnas], char cVacio, short sActual, char cBblanco, char cBnegro, char cQblanca, char cQnegra) {
+	if (cTablero[sFilaInicial][sColumnaInicial] == cBblanco || cTablero[sFilaInicial][sColumnaInicial] == cBnegro || cTablero[sFilaInicial][sColumnaInicial] == cQnegra || cTablero[sFilaInicial][sColumnaInicial] == cQblanca) {
+		for (short i = sFilaInicial - 1; i < sFilaNueva; i--) {
+			for (short j = sColumnaInicial + 1; j > sColumnaNueva; j++) {
+				// Si pasa por encima de alguna pieza, dará falso.
+				if (cTablero[i][j] != cVacio) {
+					cout << "No se puede llegar hasta la casilla!!!" << endl;
+					return false;
+				}
+				else if (cTablero[i][j] == cTablero[sFilaNueva][sColumnaNueva]) {
+					// Verificación para que en la casilla seleccionada esté una pieza del color opuesto con las funciones isupper y islower que detectan si un caracter está en mayúscula o minúscula
+					if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+						cout << "Esa pieza es tuya!!!!" << endl;
+						return false;
+					}
+					else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+						cout << "Esa pieza es tuya!!!!" << endl;
+						return false;
+					}
+					else
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false; // Si no se cumple ninguna condición, retornar falso.
+	}
+}
+
+// Verifico si la casilla esta abajo a la izquierda de la casilla inicial
+bool fAlfilAbajoIzquierda(char cTablero[dFilas][dColumnas], char cVacio, short sActual, char cBblanco, char cBnegro, char cQblanca, char cQnegra) {
+	for (short i = sFilaInicial - 1; i < sFilaNueva; i--) {
+		for (short j = sColumnaInicial - 1; j > sColumnaNueva; j--) {
+			// Si pasa por encima de alguna pieza, dará falso.
+			if (cTablero[i][j] != cVacio) {
+				cout << "No se puede llegar hasta la casilla!!!" << endl;
+				return false;
+			}
+			else if (cTablero[i][j] == cTablero[sFilaNueva][sColumnaNueva]) {
+				// Verificación para que en la casilla seleccionada esté una pieza del color opuesto con las funciones isupper y islower que detectan si un caracter está en mayúscula o minúscula
+				if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+					cout << "Esa pieza es tuya!!!!" << endl;
+					return false;
+				}
+				else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+					cout << "Esa pieza es tuya!!!!" << endl;
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false; // Si no se cumple ninguna condición, retornar falso.
+}
+
+// Verifico si la casilla esta abajo a la izquierda de la casilla inicial
+bool fAlfilArribaIzquierda(char cTablero[dFilas][dColumnas], char cVacio, short sActual, char cBblanco, char cBnegro, char cQblanca, char cQnegra) {
+	for (short i = sFilaInicial + 1; i < sFilaNueva; i++) {
+		for (short j = sColumnaInicial - 1; j > sColumnaNueva; j--) {
+			// Si pasa por encima de alguna pieza, dará falso.
+			if (cTablero[i][j] != cVacio) {
+				cout << "No se puede llegar hasta la casilla!!!" << endl;
+				return false;
+			}
+			else if (cTablero[i][j] == cTablero[sFilaNueva][sColumnaNueva]) {
+				// Verificación para que en la casilla seleccionada esté una pieza del color opuesto con las funciones isupper y islower que detectan si un caracter está en mayúscula o minúscula
+				if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+					cout << "Esa pieza es tuya!!!!" << endl;
+					return false;
+				}
+				else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+					cout << "Esa pieza es tuya!!!!" << endl;
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false; // Si no se cumple ninguna condición, retornar falso.
+}
+
+void fAlfil(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cBblanco, char cBnegro, char cKblanco, char cKnegro, char cQblanca, char cQnegra) {
+	if (cTablero[sFilaInicial][sColumnaInicial] == cQblanca || cTablero[sFilaInicial][sColumnaInicial] == cQnegra) {
+		if (fAlfilAbajoDerecha(cTablero, cVacio, sActual, cBblanco, cBnegro, cQblanca, cQnegra) == true || fAlfilArribaDerecha(cTablero, cVacio, sActual, cBblanco, cBnegro, cQblanca, cQnegra) == true
+			|| fAlfilAbajoIzquierda(cTablero, cVacio, sActual, cBblanco, cBnegro, cQblanca, cQnegra) == true || fAlfilArribaIzquierda(cTablero, cVacio, sActual, cBblanco, cBnegro, cQblanca, cQnegra) == true)
+		{
+			// Realizar el movimiento en el tablero
+			cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
+			// Vaciar la posición anterior
+			cTablero[sFilaInicial][sColumnaInicial] = cVacio;
+			// Actualizar turno
+			if (sActual == 1)
+			{
+				sActual = 0;
+			}
+			else
+			{
+				sActual = 1;
+			}
+			if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
+			{
+				cout << "Mate!!!" << endl;
+				bGameover = false;
+			}
+		}
+		else
+		{
+			cout << "Movimiento invalido" << endl;
+		}
+	}
+}
+
+void fReyna(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cQblanca, char cQnegra, char cKblanco, char cKnegro, char cTblanca, char cTnegra, char cBblanco, char cBnegro) {
+	// Para verificar como se va a mover, 1 = Se mueve como una torre, 0 = Se mueve como un alfil
+	short sForma;
+	if (cTablero[sFilaInicial][sColumnaInicial] == cQblanca || cTablero[sFilaInicial][sColumnaInicial] == cQnegra) {
+		if (sFilaInicial == sFilaNueva || sColumnaInicial == sColumnaNueva)
+		{
+			sForma = 1;
+		}
+		else 
+		{
+			sForma = 0;
+		}
+		if (sForma == 1)
+		{
+			fTorre(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco, cKnegro, cTblanca, cTnegra);
+		}
+		else
+		{
+			fAlfil(bGameover, cPnegro, cTablero, cVacio, sActual, cBblanco, cBnegro, cKblanco, cKnegro, cQblanca, cQnegra);
+		}
+	}
+}
+
+void fRey(bool& bGameover, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cKblanco, char cKnegro) {
+
+	bool bVertical = ((sFilaInicial - sFilaNueva == 1 || sFilaNueva - sFilaInicial == 1) && sColumnaInicial == sColumnaNueva);
+	bool bHorizontal = ((sColumnaInicial - sColumnaNueva == 1 || sColumnaNueva - sColumnaInicial == 1) && sFilaInicial == sFilaNueva); 
+	bool bDiagonal = ((sFilaInicial - sFilaNueva == 1 || sFilaNueva - sFilaInicial == 1) && (sColumnaInicial - sColumnaNueva == 1 || sColumnaNueva - sColumnaInicial == 1));
+
+	if (bVertical == true || bHorizontal == true || bDiagonal == true)
 	{
 		// Realizar el movimiento en el tablero
 		cTablero[sFilaNueva][sColumnaNueva] = cTablero[sFilaInicial][sColumnaInicial];
 		// Vaciar la posición anterior
 		cTablero[sFilaInicial][sColumnaInicial] = cVacio;
-		// Actualizar para turno de las blancas
-		sActual = 0;
-		if (cTablero[sFilaNueva][sColumnaNueva] == cBblanco && cTablero[sFilaNueva][sColumnaNueva] == cBnegro)
+		if (cTablero[sFilaNueva][sColumnaNueva] == cKblanco && cTablero[sFilaNueva][sColumnaNueva] == cKnegro)
 		{
 			cout << "Mate!!!" << endl;
 			bGameover = false;
+		}
+		if (sActual == 0 && isupper(cTablero[sFilaNueva][sColumnaNueva])) {
+			cout << "Esa pieza es tuya!!!!" << endl;
+		}
+		else if (sActual == 1 && islower(cTablero[sFilaNueva][sColumnaNueva])) {
+			cout << "Esa pieza es tuya!!!!" << endl;
+		}
+		// Actualizar turno
+		if (sActual == 1)
+		{
+			sActual = 0;
+		}
+		else
+		{
+			sActual = 1;
 		}
 	}
 	else

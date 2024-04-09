@@ -1,7 +1,5 @@
 #include <iostream>
 #include "tablero.h"
-#include "piezas_blancas.h"
-#include "piezas_negras.h"
 #include "gameplay.h"
 
 using namespace std;
@@ -9,8 +7,6 @@ using namespace std;
 #define dColumnas 9
 // 0 Blancas, 1 Negras
 short sActual = 0;
-char cPieza;
-
 
 void main() {
 	char cTablero[dFilas][dColumnas];
@@ -45,9 +41,11 @@ void main() {
 		fTurno(sActual, cTablero);
 		// Movimiento del peon blanco
 		fPeonBlanco(bGameover, cPblanco, cTablero, cVacio, sActual, cKnegro);
-		fPeonNegro(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco); 
+		fPeonNegro(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco);
 		fTorre(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco, cKnegro, cTblanca, cTnegra);
 		fCaballo(bGameover, cPnegro, cTablero, cVacio, sActual, cHblanco, cHnegro);
-		void fAlfil(bool& bGameover, char cPnegro, char cTablero[dFilas][dColumnas], char cVacio, short& sActual, char cBblanco, char cBnegro);
+		fAlfil(bGameover, cPnegro, cTablero, cVacio, sActual, cBblanco, cBnegro,cKblanco, cKnegro, cQblanca, cQnegra);
+		fReyna(bGameover, cPnegro, cTablero, cVacio, sActual, cQblanca, cQnegra, cKblanco, cKnegro, cTblanca, cTnegra, cBblanco, cBnegro);
+		fRey(bGameover, cTablero, cVacio, sActual, cKblanco, cKnegro);
 	}
 }
