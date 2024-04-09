@@ -26,5 +26,5 @@ Este es un programa simple de ajedrez implementado en C++. Permite jugar una par
 
 ## Notas
 
-- Este programa es un proyecto educativo y rtodas las características avanzadas del ajedrez.
-- El código puede ser mejorado y optimizado para un uso más eficiente y funcional.
+- Este programa es un proyecto educativo y no contiene todas las características avanzadas del ajedrez.
+- El código puede ser mejorado y optimizado para un uso más eficiente y funcional en el futuro.
