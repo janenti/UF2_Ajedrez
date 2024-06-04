@@ -42,10 +42,10 @@ void main() {
 		// Movimiento del peon blanco
 		fPeonBlanco(bGameover, cPblanco, cTablero, cVacio, sActual, cKnegro);
 		fPeonNegro(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco);
-		fTorre(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco, cKnegro, cTblanca, cTnegra);
-		fCaballo(bGameover, cPnegro, cTablero, cVacio, sActual, cHblanco, cHnegro);
-		fAlfil(bGameover, cPnegro, cTablero, cVacio, sActual, cBblanco, cBnegro,cKblanco, cKnegro, cQblanca, cQnegra);
-		fReyna(bGameover, cPnegro, cTablero, cVacio, sActual, cQblanca, cQnegra, cKblanco, cKnegro, cTblanca, cTnegra, cBblanco, cBnegro);
-		fRey(bGameover, cTablero, cVacio, sActual, cKblanco, cKnegro);
+		fCaballo(bGameover, cTablero, cVacio, sActual, cHblanco, cHnegro, cKblanco, cKnegro);
+		fTorre(bGameover, cTablero, cVacio, sActual, cKblanco, cKnegro, cTblanca, cTnegra);
+		fAlfil(bGameover, cTablero, cVacio, sActual, cBblanco, cBnegro, cKblanco, cKnegro);
+		fReyna(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco, cKnegro, cQblanca, cQnegra);
+		fRey(bGameover, cPnegro, cTablero, cVacio, sActual, cKblanco, cKnegro);
 	}
 }
