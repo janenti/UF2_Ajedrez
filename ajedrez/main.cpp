@@ -5,11 +5,12 @@
 using namespace std;
 #define dFilas 9
 #define dColumnas 9
-// 0 Blancas, 1 Negras
-short sActual = 0;
+
 
 void main() {
 	char cTablero[dFilas][dColumnas];
+	// 0 Blancas, 1 Negras
+	short sActual = 0;
 	// Piezas
 	char cPblanco = 'P';
 	char cPnegro = 'p';
